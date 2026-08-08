@@ -15,7 +15,11 @@ if (-not $changes) {
     exit 0
 }
 
+$branch = git branch --show-current
 $defaultMessage = "Deploy automatico"
+Write-Host "Repositorio: $remote"
+Write-Host "Branch atual: $branch"
+
 $commitMessage = Read-Host "Mensagem do commit [$defaultMessage]"
 if ([string]::IsNullOrWhiteSpace($commitMessage)) {
     $commitMessage = $defaultMessage
@@ -25,4 +29,5 @@ git add .
 git commit -m $commitMessage
 git push origin HEAD
 
+Write-Host "Commit realizado com sucesso: $commitMessage"
 Write-Host "Deploy concluido com sucesso."

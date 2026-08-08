@@ -2,7 +2,7 @@
   "version": "2.0.0",
   "tasks": [
     {
-      "label": "Deploy + Commit",
+      "label": "Commit + Push (com mensagem)",
       "type": "shell",
       "command": "powershell",
       "args": [
@@ -14,6 +14,11 @@
       ],
       "options": {
         "cwd": "${workspaceFolder}"
+      },
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared",
+        "clear": true
       },
       "problemMatcher": []
     }
