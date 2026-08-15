@@ -1,0 +1,56 @@
+:root {
+   --text: #1c1917;
+}
+
+/* Reset CSS */
+   *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+   }
+   body {
+    font-family: 'Inter', sans-serif;
+    min-height: 100vh;
+    color: var(--text);
+    background-color: #fafaf9;
+   }
+
+
+/**********
+ *cabecalho
+ **********/
+   header {
+    background-color: #ffffff
+   }
+   header .brand {
+      display: flex;
+      align-items: center;
+      gap: .75rem;
+   }
+   header .brand img {
+      height: 3rem;
+   }
+   header.brand h1 {
+      font-size: 1.75rem;
+      font-weight: 700;
+      line-height: 1.05;
+      letter-spacing: -0.5em;
+   }
+   header.brand p {
+      margin-top: 2px;
+      font-size: 0.8em;
+      background-color: #78716c;
+   }
+   header .cart-button {
+      display: flex;
+      border: 1px solid #78716c;
+      width: 2.5rem;
+      height: 2.5rem;
+      align-items: center;
+      justify-content: center;
+      border-radius: 0.75rem;
+   }
+   header .cart-button img {
+      width: 1.5rem;
+      height: 1.5rem;
+   }
