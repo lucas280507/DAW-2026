@@ -5,9 +5,11 @@
    --bg: #fafa9f;
    --primary: #ea580c;
 
+   --border: #e7e5e4;
+
 }
 
-/* Reset CSS */
+/* GENERIC */
    *{
     margin: 0;
     padding: 0;
@@ -24,10 +26,10 @@
      margin-inline: auto;
    }
 
-/**********
+/****
  *cabecalho
- **********/
-   header {
+ ****/
+   body > header {
       background-color: #ffffff;
    }
 
@@ -69,7 +71,7 @@
       padding-block: 1rem;
    }
    nav ul a {
-      border: 1px solid #e7e5e4;
+      border: 1px solid var(--border);
       border-radius: 999px;
       padding: 0.5rem 1rem;
       text-decoration: none;
@@ -78,35 +80,155 @@
       font-weight: 500;
    }
 
-nav ul a.active {
+   nav ul a.active {
      border-color: var(--primary);
      background-color: var(--primary);
      color: #ffffff;
    }
+
    nav ul a:not(a.active):hover {
       border-color: var(--primary);
       color: var(--primary);
    }
+
    header .cart-button {
       display: flex;
-      border: 1px solid #78716c;
+      border: 1px solid var(--border);
       width: 2.5rem;
       height: 2.5rem;
       align-items: center;
       justify-content: center;
       border-radius: 0.75rem;
    }
+
    header .cart-button img {
       width: 1.5rem;
       height: 1.5rem;
    }
 
+   /*********************************
+   MAIN
+   *********************************/
+
+   main {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 300px;
+      gap: 1.5rem;
+      padding-block: 1.5rem;
+   }
+   
+   main > section {
+      display: grid;
+      gap: 1.25rem;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      align-items: start;
+   }
+
+   main > section header {
+      display: flex;
+      grid-column: 1 / -1;
+      justify-content: space-between;
+      align-items: center;
+      padding-block: 0.5rem;
+   }
+
+   main > section header h2 {
+      font-size: 1.4rem;
+   }
+
+   main > section header p {
+      color: var(--text-muted);
+      font-size: 0.75rem;
+   }
+
+   main > section article {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      border-radius: 1rem;
+      background-color: #ffffff;
+      box-shadow: 0 2px 8px rgb(36 33 31 / 7%);
+   }
+
+   section article figure {
+      position: relative;
+      grid-column: 1 / -1;
+      aspect-ratio: 16 / 10;  
+}
+
+   section article figure img {
+      object-fit: cover;
+      width: 100%;
+      height: 100%;
+      display: block;
+   }
+
+   section article figure figcaption {
+      position: absolute;
+      top: 0.6rem;
+      right: 0.5rem;
+      background-color: var(--primary);
+      color: #ffffff;
+      font-size: 0.6rem;
+      text-transform: lowercase;
+      padding-inline: 0.5rem;
+      padding-block: 0.2rem;
+      border-radius: 0.5rem;
+   }
+
+   section article h3,
+   section article p {
+      grid-column: 1 / -1;
+      padding-inline: 1rem;
+   }
+
+   section article h3 {
+      padding-top: 1rem;
+      font-size: 1rem;
+      font-weight: 600;
+      line-height: 1.25rem;
+   }
+
+   section article p:last-of-type {
+      color: var(--primary);
+      padding-block: 1rem;
+      font-size: 1.25rem;
+      font-weight: 800;
+      grid-column: 1;
+      align-self: center;
+   }
+
+   section article p:first-of-type {
+      color: var(--primary);
+      padding-top: 0.5rem;
+      font-size: 0.75rem;
+      line-height: 1.3rem;
+   }
+
+   section article button {
+      background-color: var(--primary);
+      color: #ffffff;
+      border: 0;
+      padding: 0.5rem 1rem;
+      border-radius: 10px;
+      font-weight: 700;
+      cursor: pointer;
+      grid-column: 2;
+      align-self: center;
+      margin-right: 1rem;
+   }
+
+
+   /********************************
+   FOOTER
+   ********************************/
+
    footer{
    background-color: var(--text-muted);
    color: var(--bg);
-    font-size: 0.8rem;
-    font-weight: 500;
-    margin-top: 2rem;
-    padding-block: 1.5rem;
+   font-size: 0.8rem;
+   font-weight: 500;
+   margin-top: 2rem;
+   padding-block: 1.5rem;
    }
-   
