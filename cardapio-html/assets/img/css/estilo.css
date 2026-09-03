@@ -20,6 +20,9 @@
     min-height: 100vh;
     color: var(--text);
     background-color: #fafaf9;
+
+   display: grid;
+   grid-template-rows: auto 1fr auto;
    }
    .container {
      width: min (100% - 2rem, 1200px);
@@ -31,12 +34,26 @@
  ****/
    body > header {
       background-color: #ffffff;
+
+      position: sticky;
+      top: 0rem;
+      z-index: 10;
    }
 
-   header .container,
-   footer .container{
+   header .container {
       display: flex;
       justify-content: space-between;
+      border-bottom: 1px solid var(--border);
+      align-items: center;
+      flex-direction: row;
+   }
+
+   footer .container {
+      display: flex;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--border);
+      align-items: flex-start;
+      flex-direction: column;
    }
    header .brand {
       display: flex;
@@ -49,26 +66,42 @@
    }
 
    header.brand h1 {
-      font-size: 1.75rem;
+      font-size: clamp(1.25rem, 5vw, 1.75rem);
       font-weight: 700;
       line-height: 1.05;
       letter-spacing: -0.5em;
    }
 
    header.brand p {
+      display: none;
       margin-top: 2px;
       font-size: 0.8em;
       color: var(--text-muted)
    }
 
    nav {
-      background-color: #fafaf9
+      background-color: #fafaf9;
+      border-bottom: 1px solid var(--border);
+      padding-block: 0.5rem;
+
+      overflow: hidden;
+
+      position: sticky;
+      top: 5rem;
+      z-index: 20;
+      
    }
    nav ul {
       display: flex;
       list-style: none;
-      gap: 1rem;
+      gap: 2rem;
       padding-block: 1rem;
+      overflow: hidden;
+      overscroll-behavior-inline: contain;
+      scrollbar-width: thin;
+   }
+    nav ul li {
+      flex: 0 0 auto;
    }
    nav ul a {
       border: 1px solid var(--border);
@@ -93,6 +126,7 @@
 
    header .cart-button {
       display: flex;
+      flex: 0 0 auto;
       border: 1px solid var(--border);
       width: 2.5rem;
       height: 2.5rem;
@@ -112,7 +146,7 @@
 
    main {
       display: grid;
-      grid-template-columns: minmax(0, 1fr) 300px;
+      grid-template-columns: minmax(0, 1fr);
       gap: 1.5rem;
       padding-block: 1.5rem;
    }
@@ -120,7 +154,7 @@
    main > section {
       display: grid;
       gap: 1.25rem;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
+      grid-template-columns: minmax(0, 1fr);
       align-items: start;
    }
 
@@ -219,6 +253,35 @@
       margin-right: 1rem;
    }
 
+   main aside {
+      order: -1;
+      align-self: start;
+      border: 1px solid var(--border);
+      border-radius: 1rem;
+      background-color: #ffffff;
+      box-shadow: 0 2px 8px rgb(36 33 31 / 7%);
+   }
+   main aside h2 {
+      padding: 1rem;
+      font-size: 1.25rem;
+   }
+   main aside .cart-empty {
+    text-align: center;
+      padding-block: 2rem;
+      border-top: 1px solid var(--border);
+   }
+   main aside .cart-empty p:first-of-type {
+      font-weight: 600;
+      font-size: 1rem;
+      color:var(--text);
+   }
+   main aside .cart-empty p:last-of-type {
+      font-size: 0.75rem;
+      margin-top: 0.25rem;
+      color: var(--text-muted);
+   }
+
+
 
    /********************************
    FOOTER
@@ -231,4 +294,46 @@
    font-weight: 500;
    margin-top: 2rem;
    padding-block: 1.5rem;
+   }
+
+   /********************************
+   RESPONSIVIDADE
+   ********************************/
+   /* celulares maiores que 30rem */
+   @media (min-width: 30rem) {
+      header .brand p {
+         display: block;
+      }
+      header .cart-button {
+         width: 3rem;
+         height: 3rem;
+      }
+   }
+
+/* tablets maiores que 48rem */
+   @media (min-width: 48rem) {
+      main section {
+         grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+      footer .container {
+         flex-direction: row;
+         align-items: center;
+         justify-content: space-between;
+         gap: 2rem;
+      }
+   }
+
+   /* desktop */
+   @media (min-width: 64rem) {
+      main  {
+         grid-template-columns: minmax(0, 1fr) 330px;
+      }
+     main section {
+        grid-column: 1;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+      main aside {
+         order: initial;
+         grid-column: 2;
+      }
    }
