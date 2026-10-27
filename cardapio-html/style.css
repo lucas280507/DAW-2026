@@ -8,9 +8,9 @@
     --border: #E7E5E4;
 }
 
-/*****
+/***
 * GENERICS 
-*****/
+***/
 * {
     margin: 0;
     padding: 0;
@@ -35,9 +35,9 @@ main {
 }
 
 
-/*****
+/***
 * CABECHALHO
-*****/
+***/
 body > header {
     background-color: #ffffff;
 
@@ -93,9 +93,9 @@ header .cart-button img {
     height: 1.25rem;
 }
 
-/*****
+/***
 * NAVEGAÇÃO
-*****/
+***/
 nav {
     background-color: #fff;
     border-bottom: 1px solid var(--border);
@@ -140,9 +140,9 @@ nav ul a:not(a.active):hover {
     color: var(--primary);
 }
 
-/*****
+/***
 * MAIN
-*****/
+***/
 main {
     display: grid;
     grid-template-columns: minmax(0, 1fr) ;
@@ -272,9 +272,9 @@ main aside .cart-empty p:last-of-type {
     color: var(--text-muted);
 }
 
-/*****
+/***
 * FOOTER
-*****/
+***/
 footer {
     background-color: var(--text-muted);
     color: var(--bg);
@@ -293,13 +293,13 @@ footer .container {
     text-align: center;
 } */
 
-/*****
+/***
 * RESPONSIVIDADE
-******/
+**/
 
-/*****************************
+/***********
 CELULARES GRANDES - 30REM = 480PX
-*****************************/
+***********/
 
 @media (min-width: 30rem) {
     header .brand p {
@@ -312,9 +312,9 @@ CELULARES GRANDES - 30REM = 480PX
     }
 }
 
-/*******************************
+/***********
 TABLETS - 48REM = 768PX
-*******************************/
+***********/
 @media (min-width: 48rem) {
     main section {
        grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -327,9 +327,9 @@ TABLETS - 48REM = 768PX
     }
 }
 
-/*******************************
+/***********
 DESKTOPS E NOTEBOOKS - 64REM = 1024PX
-*******************************/
+***********/
 @media (min-width: 64rem) {
     main {
         grid-template-columns: minmax(0, 1fr) 330px;
