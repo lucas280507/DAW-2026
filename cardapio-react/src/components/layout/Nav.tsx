@@ -5,7 +5,7 @@ type NavigationBarProps = {
     activeCategory: string
     onSelectCategory: (categoryAlias: string) => void
   }
-export function NavigationBar({ 
+export function Nav({ 
 
       categories,
       activeCategory,
@@ -14,7 +14,7 @@ export function NavigationBar({
   }: NavigationBarProps) {
     return (
         <nav aria-label="Categorias">
-          <ul className="Container">
+          <ul className="container">
             {categories.map((category) => (
             <li key={category.alias}>
               <button 
