@@ -8,9 +8,9 @@
     --border: #E7E5E4;
 }
 
-/***
+/*****
 * GENERICS 
-***/
+*****/
 * {
     margin: 0;
     padding: 0;
@@ -35,9 +35,9 @@ main {
 }
 
 
-/***
-* CABECHALHO
-***/
+/*****
+* CABECALHO
+*****/
 #root > header {
     background-color: #ffffff;
 
@@ -93,9 +93,9 @@ header .cart-button img {
     height: 1.25rem;
 }
 
-/***
+/*****
 * NAVEGAÇÃO
-***/
+*****/
 nav {
     background-color: #fff;
     border-bottom: 1px solid var(--border);
@@ -123,7 +123,7 @@ nav ul li {
 }
 nav ul button {
     background-color: transparent;
-    cursor: porinter;
+    cursor: pointer;
     border: 1px solid var(--border);
     border-radius: 999px;
     padding: .5rem 1rem;
@@ -142,9 +142,9 @@ nav ul button:not(button.active):hover {
     color: var(--primary);
 }
 
-/***
+/*****
 * MAIN
-***/
+*****/
 main {
     display: grid;
     grid-template-columns: minmax(0, 1fr) ;
@@ -153,7 +153,7 @@ main {
 }
 main > section {
     display: grid;
-    grid-template-columns: minmax(0, 1fr);
+    grid-template-columns:  minmax(0, 1fr);
     gap: 1.25rem;    
     align-items: start;
 }
@@ -178,7 +178,7 @@ main > section article {
     border: 1px solid var(--border);
     border-radius: 1rem;  
     background-color: #fff;  
-    box-shadow: 0 2px 8px rgb(36 33 31 / 7%);
+    box-shadow: 0 2px 8px rgb(36 33 31 / 50%);
 }
 section article figure {
     position: relative;
@@ -240,6 +240,24 @@ section article button {
     align-self: center;
     margin-right: 1rem;
 } 
+section .panel-error {
+    text-align: center;
+    padding-block: 1rem;
+    font-size: 1.2rem;
+    border: 1px solid #D20000;
+    color: #D20000;
+    grid-column: 1 / -1;
+
+}
+section .panel-error {
+border: 1px solid #D20000;
+color:#D20000;
+
+
+
+}
+
+
 
 main aside {
     order: -1;
@@ -247,7 +265,7 @@ main aside {
     border: 1px solid var(--border);
     border-radius: 0.8rem;
     background-color: #fff;
-    box-shadow: 0 10px 26px rgb(36 33 31 / 8%);
+    box-shadow: 0 10px 26px rgb(36 33 31 / 50%);
 }
 
 main aside h2 {
@@ -274,9 +292,9 @@ main aside .cart-empty p:last-of-type {
     color: var(--text-muted);
 }
 
-/***
+/*****
 * FOOTER
-***/
+*****/
 footer {
     background-color: var(--text-muted);
     color: var(--bg);
@@ -295,13 +313,11 @@ footer .container {
     text-align: center;
 } */
 
-/***
+/*****
 * RESPONSIVIDADE
-**/
+******/
 
-/***********
-CELULARES GRANDES - 30REM = 480PX
-***********/
+/*celulares maiores*/
 
 @media (min-width: 30rem) {
     header .brand p {
@@ -311,37 +327,40 @@ CELULARES GRANDES - 30REM = 480PX
     header .cart-button {
         width: 3.25rem;
         height: 2.625rem;
+    } 
+    main {
+        grid-template-columns: minmax(1, 1fr) 330px;
+    }
+    main section {
+        grid-template-columns: repeat(1, minmax(0, 1fr));
     }
 }
 
-/***********
-TABLETS - 48REM = 768PX
-***********/
+/* Tablets */
 @media (min-width: 48rem) {
+    main {
+        grid-template-columns: minmax(2, 1fr) 330px;
+    }
     main section {
-       grid-template-columns: repeat(2, minmax(0, 1fr));
-       footer .container {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    footer .container {
         flex-direction: row;
         align-items: center;
         justify-content: space-between;
-        gap: 2rem;  
-       }
+        gap: 2rem;
     }
 }
 
-/***********
-DESKTOPS E NOTEBOOKS - 64REM = 1024PX
-***********/
+/* Desktops */
 @media (min-width: 64rem) {
     main {
         grid-template-columns: minmax(0, 1fr) 330px;
     }
-
     main section {
        grid-column: 1;
        grid-template-columns: repeat(3, minmax(0, 1fr));
     }
-
     main aside{
         order: initial;
         grid-column: 2;

@@ -8,8 +8,13 @@ import { useState } from "react";
 function App() {
   
   const [activeCategory, setActiveCategory] = useState<string>('todos');
+   const { products, loading, error
 
-  const products = useProducts();
+   } = useProducts();
+
+   const visibleProducts = activeCategory === 'todos' 
+   ? products :
+    products.filter(product => product.category === activeCategory);
   
   function handleSelectCategory(alias: string) {
     setActiveCategory(alias);
@@ -24,10 +29,19 @@ function App() {
         <section>
           <header>
             <h2>Produtos</h2>
-            <p>Categoria <span id="selected-category">{activeCategory}</span> - 10 itens</p>
+            <p>Categoria <span id="selected-category">{activeCategory}</span> - {visibleProducts.length} itens</p>
           </header>
+
+
+                      {loading && <p>Carregando produtos...</p>}
+
+          {error && <p>Erro ao carregar produtos: {error}</p>
+          }
+
+
+
           
-         {products.map(product => (
+         {visibleProducts.map(product => (
   <ProductCard product={product} />
 ))}
         
